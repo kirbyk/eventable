@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929182638) do
+ActiveRecord::Schema.define(version: 20150929191147) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",         null: false
-    t.string   "type",         null: false
+    t.string   "event_type",   null: false
     t.string   "app_color"
     t.string   "app_logo"
     t.integer  "organizer_id"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20150929182638) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "events", ["event_type"], name: "index_events_on_event_type"
   add_index "events", ["name"], name: "index_events_on_name"
-  add_index "events", ["type"], name: "index_events_on_type"
 
   create_table "organizers", force: :cascade do |t|
     t.string   "password_digest",                 null: false
@@ -33,6 +33,38 @@ ActiveRecord::Schema.define(version: 20150929182638) do
     t.boolean  "is_verified",     default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string   "first_name", null: false
+    t.string   "last_name",  null: false
+    t.string   "bio"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prizes", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer  "event_id",    null: false
+    t.string   "description", null: false
+    t.datetime "start_time",  null: false
+    t.datetime "end_time",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "updates", force: :cascade do |t|
+    t.string   "description", null: false
+    t.integer  "event_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
