@@ -4,5 +4,5 @@ class Event < ActiveRecord::Base
   has_many :updates, dependent: :destroy
   has_many :prizes, dependent: :destroy
   has_many :people, dependent: :destroy
-  mount_uploader :image, ImageUploader
+  mount_uploader :app_logo, ImageUploader
 end

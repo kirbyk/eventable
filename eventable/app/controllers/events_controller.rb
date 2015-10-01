@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :image, :event_type)
+    params.require(:event).permit(:name, :app_logo, :event_type, :app_color, :organizer_id)
   end
 
 
