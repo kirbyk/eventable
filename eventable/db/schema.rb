@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 20150929191147) do
     t.datetime "updated_at",                      null: false
   end
 
+  add_index "organizers", ["email"], name: "index_organizers_on_email"
+  add_index "organizers", ["name"], name: "index_organizers_on_name"
+
   create_table "people", force: :cascade do |t|
     t.string   "first_name", null: false
     t.string   "last_name",  null: false
