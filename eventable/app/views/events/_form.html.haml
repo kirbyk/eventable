@@ -8,15 +8,18 @@
         - @event.errors.full_messages.each do |message|
           %li#err_item= message
   .field
-    = f.label :name
-    %br/
+    = f.label "Event name:"
     = f.text_field :name
+  %br/
 
   .field
-    = f.label "event type"
-    %br/
-    = f.text_field :event_type
-
+    = f.label "Event type:"
+    = f.select :event_type, ['Hackerthon', 'Wedding', 'Conference']
+  %br/
+  .field 
+    = f.label "App color:"
+    = f.select :app_color, ['Green', 'Blue', 'Yellow']
+  %br/
   .field
     %br/
     - if @event.app_logo.present?
@@ -40,6 +43,7 @@
     $("#question_image").change(function(){
         readURL(this);
     });
+
   });
   function readURL(input) {
     if (input.files && input.files[0]) {
