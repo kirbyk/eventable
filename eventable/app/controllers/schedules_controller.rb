@@ -43,12 +43,19 @@ class SchedulesController < ApplicationController
         return redirect_to action: "new", event_id: event_id
       end      
       start_date = params[:start_date]
-      end_date = params[:end_date]
+      end_date = params[:end_date]      
+      
+      # protect ill-formatted "year" string because strptime does not treat it as exception
+      unless (validate_date_format(start_date) && validate_date_format(end_date))
+        flash[:notice] = "Please select start date and end date with valid time format"
+        return redirect_to action: "new", event_id: event_id
+      end              
+      
       begin
         @start_date = Date.strptime(start_date, "%m/%d/%Y")
         @end_date = Date.strptime(end_date, "%m/%d/%Y")      
       rescue
-        flash[:notice] = " Please select start date and end date with valid time format"
+        flash[:notice] = "Please select start date and end date with valid time format"
         return redirect_to action: "new", event_id: event_id
       end            
       # redirect to index      
@@ -59,4 +66,20 @@ class SchedulesController < ApplicationController
       redirect_to action: "index", event_id: event_id 
     end
   end
+  
+  private 
+  
+  def validate_date_format date
+    strs = date.split("/")
+    if strs.length != 3
+      return false
+    else
+      year_str = strs.last
+      if year_str.length != 4
+        return false
+      end
+    end
+    true
+  end
+  
 end
