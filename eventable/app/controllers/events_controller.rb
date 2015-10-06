@@ -22,6 +22,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id]);
     if @event.update(event_params)
     end
+    redirect_to action: "show", id: @event.id
   end
 
   def event_params
