@@ -1,2 +1,23 @@
 - if flash[:notice]
-  =flash[:notice]
+  .flash
+    =flash[:notice]
+	
+.col-lg-3
+.col-lg-6.mid
+  - if @schedules.count > 0
+    .div.title
+      = "#{pluralize @schedules.count, "schedule"} in #{@event_name}"
+  - else
+    .div.title
+      = "No schedule for this #{@event_name}"
+  .div
+    = link_to "Create new schedule", controller: "schedules", action: "new", event_id: @event_id
+  - @schedules.each do |s|
+    = form_for(s, :method => :delete, :id => s.id) do |f| 
+      = tag("input", type: 'hidden', name: "event_id", value: @event_id)	  
+      .schedule
+        = s.description
+        .schedule_time.margin
+          = "Time: #{s.start_time.strftime("%m/%d/%Y")} - #{s.end_time.strftime("%m/%d/%Y")}"
+        .actions.margin 		
+          = f.submit "delete"

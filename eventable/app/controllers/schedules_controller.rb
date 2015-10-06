@@ -1,12 +1,13 @@
 class SchedulesController < ApplicationController
   def index
-    event_id = params[:event_id]
-    event = Event.find_by(id: event_id)
+    @event_id = params[:event_id]
+    event = Event.find_by(id: @event_id)
     if event.nil?
       flash[:notice] = "Event does not exist"
     else
       @schedules = event.schedules
-    end    
+      @event_name = event.name      
+    end        
   end
   
   def new
@@ -15,6 +16,18 @@ class SchedulesController < ApplicationController
     if @event.nil?
       flash[:notice] = "Event does not exist"
     end
+  end
+  
+  def destroy
+    id = params[:id]
+    event_id = params[:event_id]
+    schedule = Schedule.find_by(id: id)
+    if schedule.nil?
+      flash[:notice] = "Schedule does not exist"
+    else
+      schedule.destroy
+    end
+    return redirect_to action: "index", event_id: event_id    
   end
   
   def create    
