@@ -20,8 +20,7 @@ class SchedulesController < ApplicationController
     if @edit.present?
       @schedule_id = params[:schedule_id]
       @schedule = Schedule.find_by(id: @schedule_id)      
-    end
-    
+    end    
   end
   
   def destroy

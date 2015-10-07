@@ -9,8 +9,14 @@
   = form_tag "../updates", :method => :post do
     .col-lg-12.margin
       = tag("input", type: 'hidden', name: "event_id", value: @event_id)
+      - if @edit.present?
+        = tag("input", type: 'hidden', name: "update_id", value: @update_id)	  
+			  
       = label_tag "Description"
     .col-lg-12.margin.description
-      = text_area_tag(:description)
+      - if @edit.present?
+        = text_area_tag(:description, "#{@update.description}")
+      - else
+        = text_area_tag(:description)
     .col-lg-12.margin
       = submit_tag("Done")
