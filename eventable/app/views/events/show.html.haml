@@ -1,0 +1,15 @@
+%p
+  = image_tag @event.app_logo.to_s, :class =>"img_preview"
+%p
+  %strong Event Name:
+  = @event.name
+%p
+  %strong Event Type:
+  = @event.event_type
+%p
+  %strong App Color:
+  = @event.app_color
+%p
+  %strong Organizer:
+  = @event.organizer_id
+= link_to 'Edit Event', edit_event_path(@event), role: :button

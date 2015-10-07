@@ -7,9 +7,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.save
+    redirect_to action: "show", id: @event.id
   end
 
   def show
+    @event = Event.find(params[:id])
   end
 
   def edit
@@ -20,6 +22,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id]);
     if @event.update(event_params)
     end
+    redirect_to action: "show", id: @event.id
   end
 
   def event_params
