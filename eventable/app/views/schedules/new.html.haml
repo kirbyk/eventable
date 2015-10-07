@@ -9,13 +9,25 @@
   = form_tag "../schedules", :method => :post do
     .col-lg-12.margin
       = tag("input", type: 'hidden', name: "event_id", value: @event_id)
+      - if @edit.present?
+        = tag("input", type: 'hidden', name: "schedule_id", value: @schedule_id)	  
+	   
       = label_tag "Description"
     .col-lg-12.margin.description
-      = text_area_tag(:description)
+      - if @edit.present?
+        = text_area_tag(:description, "#{@schedule.description}")
+      - else
+        = text_area_tag(:description)
     .col-lg-12.margin
-      = text_field_tag(:start_date, :start_date, class: "formbox")
+      - if @edit.present?
+        = text_field_tag(:start_date, "#{@schedule.start_time.strftime("%m/%d/%Y")}", class: "formbox")	  
+      - else 
+        = text_field_tag(:start_date, "start date", class: "formbox")	  
     .col-lg-12.margin
-      = text_field_tag(:end_date, :end_date, class: "formbox")
+      - if @edit.present?
+        = text_field_tag(:end_date, "#{@schedule.end_time.strftime("%m/%d/%Y")}", class: "formbox")	  
+      - else
+        = text_field_tag(:end_date, "end date", class: "formbox")
     .col-lg-12.margin
       = submit_tag("Done")
 	  
