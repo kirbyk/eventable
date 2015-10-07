@@ -1,0 +1,16 @@
+- if flash[:notice]
+  .flash
+    =flash[:notice]
+
+.col-lg-3
+.schedule_form.col-lg-6
+  .col-lg-12.title
+    = label_tag "Create new update for #{@event.name}"
+  = form_tag "../updates", :method => :post do
+    .col-lg-12.margin
+      = tag("input", type: 'hidden', name: "event_id", value: @event_id)
+      = label_tag "Description"
+    .col-lg-12.margin.description
+      = text_area_tag(:description)
+    .col-lg-12.margin
+      = submit_tag("Done")

@@ -16,7 +16,7 @@
     = form_for(s, :method => :delete, :id => s.id) do |f| 
       = tag("input", type: 'hidden', name: "event_id", value: @event_id)	  
       .schedule
-        = s.description
+        = simple_format s.description
         .schedule_time.margin
           = "Time: #{s.start_time.strftime("%m/%d/%Y")} - #{s.end_time.strftime("%m/%d/%Y")}"
         .actions.margin 		
