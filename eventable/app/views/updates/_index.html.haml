@@ -1,0 +1,22 @@
+.col-lg-3
+.col-lg-6.mid
+  - if updates.count > 0
+    .div.title
+      = "#{pluralize updates.count, "update"} in #{@event.name}"
+  - else
+    .div.title
+      = "No update for this #{@event.name}"
+  .div
+    = link_to "Create new update", controller: "updates", action: "new", event_id: @event.id
+  - updates.each do |u|
+    = form_for(u, :method => :delete, :id => u.id) do |f| 
+      = tag("input", type: 'hidden', name: "event_id", value: @event.id)	  
+      .schedule
+        = simple_format u.description
+        .schedule_time.margin
+          = "#{u.created_at.strftime("%m/%d/%Y")}"
+        .actions.margin 		
+          = f.submit "delete"
+        .margin
+          = link_to "Edit", controller: "updates", action: "new", event_id: @event.id, update_id: u.id, edit: true
+        

@@ -13,3 +13,9 @@
   %strong Organizer:
   = @event.organizer_id
 = link_to 'Edit Event', edit_event_path(@event), role: :button
+
+
+%h1 Schedule
+= render :partial => 'schedules/index', locals: { schedules: @event.schedules }
+%h1 Updates
+= render :partial => 'updates/index', locals: { updates: @event.updates }

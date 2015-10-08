@@ -1,0 +1,19 @@
+- if schedules.count > 0
+  .div.title
+    = "#{pluralize schedules.count, "schedule"} in #{@event.name}"
+- else
+  .div.title
+    = "No schedule for this #{@event.name}"
+.div
+  = link_to "Create new schedule", controller: "schedules", action: "new", event_id: @event.id
+- schedules.each do |s|
+  .schedule
+    = simple_format s.description
+    .schedule_time.margin
+      = "Time: #{s.start_time.strftime("%m/%d/%Y")} - #{s.end_time.strftime("%m/%d/%Y")}"
+      = form_for(s, :method => :delete, :id => s.id) do |f| 
+        = tag("input", type: 'hidden', name: "event_id", value: @event.id)	  
+        .actions.margin 		
+          = f.submit "delete"
+    .margin
+      = link_to "Edit", controller: "schedules", action: "new", event_id: @event.id, schedule_id: s.id, edit: true
