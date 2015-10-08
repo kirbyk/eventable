@@ -61,7 +61,7 @@ class UpdatesController < ApplicationController
       event.updates << update
       event.save      
     end
-      redirect_to action: "index", event_id: event_id     
+      redirect_to controller: "events", action: "show", id: event.id
   end
   
 end
