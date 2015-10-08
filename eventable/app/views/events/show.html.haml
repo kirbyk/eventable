@@ -1,21 +1,36 @@
-%p
-  = image_tag @event.app_logo.to_s, :class =>"img_preview"
-%p
-  %strong Event Name:
-  = @event.name
-%p
-  %strong Event Type:
-  = @event.event_type
-%p
-  %strong App Color:
-  = @event.app_color
-%p
-  %strong Organizer:
-  = @event.organizer_id
-= link_to 'Edit Event', edit_event_path(@event), role: :button
+.container
+  .row
+    .col-md-6
+      Phone here
+    .col-md-6
+      %ul.nav.nav-tabs{:role => "tablist"}
+        %li.active{:role => "presentation"}
+          %a{"aria-controls" => "main", "data-toggle" => "tab", :href => "#main", :role => "tab"} Main
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "schedule", "data-toggle" => "tab", :href => "#schedule", :role => "tab"} Schedule
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "updates", "data-toggle" => "tab", :href => "#updates", :role => "tab"} Updates
 
+      .tab-content
+        #main.tab-pane.active{:role => "tabpanel"}
+          %p
+            = image_tag @event.app_logo.to_s, :class =>"img_preview"
+          %p
+            %strong Event Name:
+            = @event.name
+          %p
+            %strong Event Type:
+            = @event.event_type
+          %p
+            %strong App Color:
+            = @event.app_color
+          %p
+            %strong Organizer:
+            = @event.organizer_id
+          = link_to 'Edit Event', edit_event_path(@event), role: :button
 
-%h1 Schedule
-= render :partial => 'schedules/index', locals: { schedules: @event.schedules }
-%h1 Updates
-= render :partial => 'updates/index', locals: { updates: @event.updates }
+        #schedule.tab-pane{:role => "tabpanel"}
+          = render :partial => 'schedules/index', locals: { schedules: @event.schedules }
+
+        #updates.tab-pane{:role => "tabpanel"}
+          = render :partial => 'updates/index', locals: { updates: @event.updates }
