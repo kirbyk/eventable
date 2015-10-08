@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008172459) do
+ActiveRecord::Schema.define(version: 20151008210034) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",         null: false
     t.string   "event_type",   null: false
-    t.string   "app_color"
     t.string   "app_logo"
     t.integer  "organizer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "app_fgcolor"
+    t.string   "app_bgcolor"
   end
 
   add_index "events", ["event_type"], name: "index_events_on_event_type"

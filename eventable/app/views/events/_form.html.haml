@@ -17,8 +17,12 @@
     = f.select :event_type, ['Hackathon', 'Wedding', 'Conference']
   %br/
   .field 
-    = f.label "App color:"
-    = f.select :app_color, ['Green', 'Blue', 'Yellow']
+    = f.label "App foreground color:"
+    = f.text_field :app_fgcolor, required: true
+  %br/
+  .field 
+    = f.label "App background color:"
+    = f.text_field :app_bgcolor, required: true
   %br/
   .field
     %br/
