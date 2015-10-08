@@ -38,6 +38,9 @@ gem 'quiet_assets', group: :development
 
 gem 'devise'
 
+gem 'jquery-minicolors-rails'
+gem 'simple_form'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

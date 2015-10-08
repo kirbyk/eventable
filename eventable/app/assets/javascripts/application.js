@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+//= require jquery.minicolors
+//= require jquery.minicolors.simple_form
 
 
 $('#myModal').on('shown.bs.modal', function () {

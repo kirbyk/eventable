@@ -1,4 +1,4 @@
-= form_for(@event) do |f|
+= simple_form_for(@event) do |f|
   - if @event.errors.any?
     #error_explanation
       %h2
@@ -17,12 +17,10 @@
     = f.select :event_type, ['Hackathon', 'Wedding', 'Conference']
   %br/
   .field 
-    = f.label "App foreground color:"
-    = f.text_field :app_fgcolor, required: true
+    = f.input :app_fgcolor, as: :minicolors, label: "App foreground color"
   %br/
   .field 
-    = f.label "App background color:"
-    = f.text_field :app_bgcolor, required: true
+    = f.input :app_bgcolor, as: :minicolors, label: "App background color"
   %br/
   .field
     %br/
