@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  devise_for :organizers
+  devise_for :organizers, :path => '', :path_names => {
+    :sign_in => 'login',
+    :sign_out => 'logout',
+    :sign_up => 'signup'
+  }
+
   root 'welcome#index'
   resources :events
   resources :schedules
