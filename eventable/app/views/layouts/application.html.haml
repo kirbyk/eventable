@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %title Eventable
+    %link{:href => "https://fonts.googleapis.com/css?family=Slabo+27px", :rel => "stylesheet", :type => "text/css"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %link{:href => "//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css", :rel => "stylesheet"}/
+  %body
+    - if current_organizer
+      %nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            .navbar-brand Eventable
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                = link_to "Logout", destroy_organizer_session_path, method: :delete
+
+    - if notice
+      %p.notice= notice
+    - if alert
+      %p.alert= alert
+
+    = yield
