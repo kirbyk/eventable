@@ -16,3 +16,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus();
+});

@@ -1,3 +1,46 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome {
+  height: 100vh;
+  background-image: url(/img/bg.jpeg);
+  background-size: cover;
+  font-family: 'Slabo 27px', serif;
+}
+
+.welcome-hero {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  top: 20%;
+  transform: translateY(-50%);
+}
+
+.welcome-title {
+  font-size: 5em;
+  color: #397298;
+}
+
+.welcome-subtitle {
+  font-size: 3em;
+  color: #8AC4FF;
+}
+
+.welcome-get-started {
+  font-size: 2em;
+  display: inline-block;
+  background-color: #9179EF;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  border: 3px solid #fff;
+  text-transform: uppercase;
+}
+
+.welcome-get-started:hover {
+  background-color: #fff;
+  color: #9179EF;
+  border-color: #9179EF;
+}

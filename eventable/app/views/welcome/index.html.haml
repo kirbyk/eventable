@@ -1,12 +1,26 @@
-- if organizer_signed_in?
-  Yo, you're logged in!
-  %br
-  = link_to "Create Event", new_event_path
-  %br
-  = link_to "Logout", destroy_organizer_session_path, method: :delete
-- else
-  Welcome to eventable!
-  %br
-  = link_to "Log in", new_organizer_session_path
-  %br
-  = link_to "Sign up", new_organizer_registration_path  
+.welcome
+  - if organizer_signed_in?
+    Yo, you're logged in!
+    %br
+    = link_to "Create Event", new_event_path
+    %br
+    = link_to "Logout", destroy_organizer_session_path, method: :delete
+  - else
+    .welcome-hero
+      .welcome-title Eventable
+      .welcome-subtitle Make apps, not war.
+      %button.welcome-get-started{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+        Get Started
+
+#myModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+        %h4.modal-title Login and Signup
+      .modal-body
+        %br
+        = link_to "Log in", new_organizer_session_path
+        %br
+        = link_to "Sign up", new_organizer_registration_path  
