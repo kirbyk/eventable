@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_organizer!
 
   def new
     @event = Event.new

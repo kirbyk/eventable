@@ -1,4 +1,6 @@
 class UpdatesController < ApplicationController
+  before_action :authenticate_organizer!
+
   def index
     @event_id = params[:event_id]
     event = Event.find_by(id: @event_id)
