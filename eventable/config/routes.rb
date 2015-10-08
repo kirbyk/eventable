@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :organizers
   root 'welcome#index'
   resources :events
   resources :schedules
