@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.organizer_id = current_organizer.id
     @event.save
     redirect_to action: "show", id: @event.id
   end
