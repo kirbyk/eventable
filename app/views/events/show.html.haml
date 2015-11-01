@@ -1,7 +1,8 @@
 .container
   .row
     .col-md-6
-      = image_tag "iphone_6.png", :class=>"iphone6"
+      .iphone6
+        %iframe.app-preview{src: 'http://localhost:8100/'}
     .col-md-6
       %ul.nav.nav-tabs{:role => "tablist"}
         %li.active{:role => "presentation"}
@@ -11,7 +12,7 @@
         %li{:role => "presentation"}
           %a{"aria-controls" => "updates", "data-toggle" => "tab", :href => "#updates", :role => "tab"} Updates
 
-      .tab-content
+      .tab-content.event-panels
         #main.tab-pane.active{:role => "tabpanel"}
           %p
             = image_tag @event.app_logo.to_s, :class =>"img_preview"
@@ -37,3 +38,5 @@
 
         #updates.tab-pane{:role => "tabpanel"}
           = render :partial => 'updates/index', locals: { updates: @event.updates }
+
+      = link_to 'Build App', build_event_path(@event), role: :button, class: 'btn btn-default'

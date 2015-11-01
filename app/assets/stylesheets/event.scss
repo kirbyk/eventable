@@ -10,11 +10,26 @@
 }
 
 .iphone6 {
-  width: 300px;
-  height: 600px;
+  background-image: url(/img/iphone_6.png);
+  background-size: cover;
+  width: 288px;
+  height: 587px;
   float: right;
+  position: relative;
+}
+
+.app-preview {
+  position: absolute;
+  top: 69px;
+  left: 17px;
+  height: 451px;
+  width: 255px;
 }
 
 .hidden {
   visibility: hidden;
+}
+
+.event-panels {
+  height: 500px;
 }
