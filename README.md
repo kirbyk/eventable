@@ -21,6 +21,5 @@ Deployment
 
 ```bash
 $ rails s
-$ cd lib/hackathon-template && ionic serve
 $ browser http://localhost:3000
 ```
