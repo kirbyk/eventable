@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
-.controller('UpdatesCtrl', function($scope) {})
+.controller('UpdatesCtrl', function($scope) {
+})
 
 .controller('MentorsCtrl', function($scope) {})
 

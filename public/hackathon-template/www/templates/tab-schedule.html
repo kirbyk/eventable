@@ -2,7 +2,16 @@
   <ion-content class="padding">
 
     <div class="list card" ng-repeat="item in scheduleItems">
-      <div class="item item-divider">{{item.description}}</div>
+      <div class="item item-divider">
+        <p>
+          Start Time: {{item.start_time}}
+          <br />
+          End Time: {{item.end_time}}
+        </p>
+      </div>
+      <div class="item item-body">
+        {{item.description}}
+      </div>
     </div>
 
   </ion-content>
