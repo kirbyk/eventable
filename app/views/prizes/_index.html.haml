@@ -1,0 +1,20 @@
+- if prizes.count > 0
+  .div.title
+    = "#{pluralize prizes.count, "prize"} in #{@event.name}"
+- else
+  .div.title
+    = "No prize for this #{@event.name}"
+.div
+  = link_to "Create new prize", controller: "prizes", action: "new", event_id: @event.id
+- prizes.each do |p|
+  = form_for(p, :method => :delete, :id => p.id) do |f| 
+    .schedule
+      %b 
+        = "Name:" 
+      = simple_format p.name
+      .schedule_time.margin
+        = "#{p.created_at.strftime("%m/%d/%Y")}"
+      .actions.margin     
+        = f.submit "delete"
+      .margin
+        = link_to 'Edit', controller: "prizes", action: "edit", event_id: @event.id, prize_id: p.id
