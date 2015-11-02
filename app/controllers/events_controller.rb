@@ -27,6 +27,10 @@ class EventsController < ApplicationController
     redirect_to action: "show", id: @event.id
   end
 
+  def schedule
+    @schedule_items = Schedule.where(event_id: params[:id])
+  end
+
   def build
     `cd lib/hackathon-template && ionic emulate ios` # TODO: such hack. Should use sidekiq
     redirect_to action: "show", id: params[:id]
