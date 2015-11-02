@@ -22,6 +22,14 @@ Deployment
 
 ```bash
 $ rails s
-$ cd lib/hackathon-template && ionic serve
 $ browser http://localhost:3000
 ```
+
+Troubleshooting
+---------------
+
+Sometimes the iOS emulator gets stuck at a black screen. Go up to Simulator at
+the top of the screen and click Reset Content and Settings.
+
+Also, clicking Build App within the webapp is a lot faster if the simulator is
+already running:)

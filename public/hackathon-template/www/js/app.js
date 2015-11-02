@@ -14,8 +14,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
+
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
@@ -24,6 +24,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+  // IS_WEB_PREVIEW is rendered on the rails app, but not in the native app.
+  var pathPrefix = '';
+  if (IS_WEB_PREVIEW) {
+    pathPrefix = '/hackathon-template/www/';
+  }
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -32,54 +37,55 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: pathPrefix + 'templates/tabs.html'
   })
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.updates', {
+    url: '/updates',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-updates': {
+        templateUrl: pathPrefix + 'templates/tab-updates.html',
+        controller: 'UpdatesCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.mentors', {
+    url: '/mentors',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-mentors': {
+        templateUrl: pathPrefix + 'templates/tab-mentors.html',
+        controller: 'MentorsCtrl'
       }
     }
-  });
+  })
+
+  .state('tab.prizes', {
+    url: '/prizes',
+    views: {
+      'tab-prizes': {
+        templateUrl: pathPrefix + 'templates/tab-prizes.html',
+        controller: 'PrizesCtrl'
+      }
+    }
+  })
+
+  .state('tab.schedule', {
+    url: '/schedule',
+    views: {
+      'tab-schedule': {
+        templateUrl: pathPrefix + 'templates/tab-schedule.html',
+        controller: 'ScheduleCtrl'
+      }
+    }
+  })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/updates');
 
 });

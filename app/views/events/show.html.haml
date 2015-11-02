@@ -2,7 +2,7 @@
   .row
     .col-md-6
       .iphone6
-        %iframe.app-preview{src: 'http://localhost:8100/'}
+        %iframe.app-preview{src: app_event_path(@event)}
     .col-md-6
       %ul.nav.nav-tabs{:role => "tablist"}
         %li.active{:role => "presentation"}
