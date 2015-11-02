@@ -24,6 +24,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
+  // IS_WEB_PREVIEW is rendered on the rails app, but not in the native app.
+  var pathPrefix = '';
+  if (IS_WEB_PREVIEW) {
+    pathPrefix = '/hackathon-template/www/';
+  }
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -35,7 +40,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: pathPrefix + 'templates/tabs.html'
   })
 
   // Each tab has its own nav history stack:
@@ -44,7 +49,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/updates',
     views: {
       'tab-updates': {
-        templateUrl: 'templates/tab-updates.html',
+        templateUrl: pathPrefix + 'templates/tab-updates.html',
         controller: 'UpdatesCtrl'
       }
     }
@@ -54,7 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/mentors',
     views: {
       'tab-mentors': {
-        templateUrl: 'templates/tab-mentors.html',
+        templateUrl: pathPrefix + 'templates/tab-mentors.html',
         controller: 'MentorsCtrl'
       }
     }
@@ -64,7 +69,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/prizes',
     views: {
       'tab-prizes': {
-        templateUrl: 'templates/tab-prizes.html',
+        templateUrl: pathPrefix + 'templates/tab-prizes.html',
         controller: 'PrizesCtrl'
       }
     }
@@ -74,7 +79,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     url: '/schedule',
     views: {
       'tab-schedule': {
-        templateUrl: 'templates/tab-schedule.html',
+        templateUrl: pathPrefix + 'templates/tab-schedule.html',
         controller: 'ScheduleCtrl'
       }
     }

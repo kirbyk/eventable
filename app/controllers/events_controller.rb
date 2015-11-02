@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_organizer!
+  layout false, only: [:app]
 
   def new
     @event = Event.new
