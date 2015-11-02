@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   end
 
   def build
-    `cd lib/hackathon-template && ionic emulate ios` # TODO: such hack. Should use sidekiq
+    `cd public/hackathon-template && ionic emulate ios` # TODO: such hack. Should use sidekiq
     redirect_to action: "show", id: params[:id]
   end
 
