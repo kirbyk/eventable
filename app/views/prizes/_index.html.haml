@@ -1,11 +1,17 @@
+- p = render "layouts/prizes"
+- p = p.downcase
 - if prizes.count > 0
   .div.title
-    = "#{pluralize prizes.count, "prize"} in #{@event.name}"
+    = prizes.count
+    = p.pluralize(prizes.count)
+    = "in #{@event.name}"
 - else
   .div.title
-    = "No prize for this #{@event.name}"
+    = "No "
+    = p
+    = " for this #{@event.name}"
 .div
-  = link_to "Create new prize", controller: "prizes", action: "new", event_id: @event.id
+  = link_to "Create new " + p, controller: "prizes", action: "new", event_id: @event.id
 - prizes.each do |p|
   = form_for(p, :method => :delete, :id => p.id) do |f| 
     .schedule

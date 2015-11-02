@@ -3,12 +3,15 @@
     #error_explanation
       %h2
         = pluralize(@prize.errors.count, "error")
-        = "prohibited this prize from being saved:"
+        = "prohibited this "
+        - p = render "layouts/prizes"
+        = p.downcase
+        = "from being saved:"
       %ul
         - @prize.errors.full_messages.each do |message|
           %li#err_item= message
   .field
-    = f.label "Name"
+    = f.label "Name: "
     = f.text_field :name, required: true
   %br/
 

@@ -1,13 +1,15 @@
 - p = render "layouts/people"
-- p = p[0, p.length - 2].downcase
+- p = p.downcase
 - if people.count > 0
   .div.title
-    = "#{pluralize people.count, "person"} in #{@event.name}"
+    = people.count
+    = p.pluralize(people.count)
+    = "in #{@event.name}"
 - else
   .div.title
     = "No" 
     = p 
-    = "for this #{@event.name}"
+    = " for this #{@event.name}"
 .div
   = link_to "Create new " + p, controller: "people", action: "new", event_id: @event.id
 - people.each do |p|
