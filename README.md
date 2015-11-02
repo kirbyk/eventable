@@ -12,6 +12,7 @@ Installation
 ```bash
 $ gem install rails
 $ npm install -g cordova ionic ios-sim
+$ cordova platform add ios
 $ bundle install
 $ rake db:migrate
 ```
