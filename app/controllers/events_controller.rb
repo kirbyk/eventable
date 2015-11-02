@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_organizer!
+  layout false, only: [:app]
 
   def new
     @event = Event.new
@@ -25,6 +26,10 @@ class EventsController < ApplicationController
     if @event.update(event_params)
     end
     redirect_to action: "show", id: @event.id
+  end
+
+  def schedule
+    @schedule_items = Schedule.where(event_id: params[:id])
   end
 
   def build
