@@ -11,6 +11,11 @@
           %a{"aria-controls" => "schedule", "data-toggle" => "tab", :href => "#schedule", :role => "tab"} Schedule
         %li{:role => "presentation"}
           %a{"aria-controls" => "updates", "data-toggle" => "tab", :href => "#updates", :role => "tab"} Updates
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "prizes", "data-toggle" => "tab", :href => "#prizes", :role => "tab"} Prizes
+        %li{:role => "presentation"}
+          %a{"aria-controls" => "people", "data-toggle" => "tab", :href => "#people", :role => "tab"} 
+            = render 'layouts/people'
 
       .tab-content.event-panels
         #main.tab-pane.active{:role => "tabpanel"}
@@ -38,5 +43,11 @@
 
         #updates.tab-pane{:role => "tabpanel"}
           = render :partial => 'updates/index', locals: { updates: @event.updates }
+
+        #prizes.tab-pane{:role => "tabpanel"}
+          = render :partial => 'prizes/index', locals: { prizes: @event.prizes }
+
+        #people.tab-pane{:role => "tabpanel"}
+          = render :partial => 'people/index', locals: { people: @event.people }
 
       = link_to 'Build App', build_event_path(@event), role: :button, class: 'btn btn-default'
