@@ -22,7 +22,9 @@ angular.module('starter.services', [])
   var scheduleItems = [
     {
       "schedule_id": 2,
-      "description": "Cookies"
+      "description": "Cookies",
+      "start_time": "12/03/2015",
+      "end_time": "12/04/2015"
     }, {
       "schedule_id": 3,
       "description": "Shit"
