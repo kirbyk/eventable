@@ -1,7 +1,7 @@
 Eventable
 =========
 
-Make apps. Not War.
+Make Apps. Not War.
 
 Eventable is a web application that allows you to generate native iOS apps for
 hackathons, conferences, and weddings.
