@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   end
   resources :schedules
   resources :updates
+  resources :prizes
+  resources :people
 end
