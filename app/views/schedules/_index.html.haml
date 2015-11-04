@@ -1,4 +1,5 @@
-= link_to "Add Schedule Item", new_schedule_path(event_id: @event.id), role: :button, class: 'btn btn-default'
+.center
+  = link_to "Add Schedule Item", new_schedule_path(event_id: @event.id), role: :button, class: 'btn btn-default add-event-item'
 
 - if schedules.count > 0
   .list-group

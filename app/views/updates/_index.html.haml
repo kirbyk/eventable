@@ -1,22 +1,17 @@
-.col-lg-3
-.col-lg-6.mid
-  - if updates.count > 0
-    .div.title
-      = "#{pluralize updates.count, "update"} in #{@event.name}"
-  - else
-    .div.title
-      = "No update for this #{@event.name}"
-  .div
-    = link_to "Create new update", controller: "updates", action: "new", event_id: @event.id
+.center
+  = link_to "Add Update", new_update_path(event_id: @event.id), role: :button, class: 'btn btn-default add-event-item'
+
+- if updates.count > 0
+  .list-group
   - updates.each do |u|
-    = form_for(u, :method => :delete, :id => u.id) do |f| 
-      = tag("input", type: 'hidden', name: "event_id", value: @event.id)	  
-      .schedule
-        = simple_format u.description
-        .schedule_time.margin
-          = "#{u.created_at.strftime("%m/%d/%Y")}"
-        .actions.margin 		
-          = f.submit "delete"
-        .margin
-          = link_to "Edit", controller: "updates", action: "new", event_id: @event.id, update_id: u.id, edit: true
-        
+    .list-group-item 
+      %h4.list-group-item-heading 
+        = u.title
+      %p.list-group-item-text
+        = u.description
+      = link_to edit_update_path(u) do
+        %button.btn.btn-default.edit-button{:type => "button"}
+          %span.glyphicon.glyphicon-pencil
+      = link_to u, method: :delete do
+        %button.btn.btn-default.remove-button{:type => "button"}
+          %span.glyphicon.glyphicon-remove
