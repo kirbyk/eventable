@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 .controller('UpdatesCtrl', function($scope) {
 })
 
-.controller('MentorsCtrl', function($scope) {})
+.controller('SpeakersCtrl', function($scope) {})
 
 .controller('PrizesCtrl', function($scope) {})
 

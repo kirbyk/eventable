@@ -55,12 +55,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.mentors', {
-    url: '/mentors',
+  .state('tab.speakers', {
+    url: '/speakers',
     views: {
-      'tab-mentors': {
-        templateUrl: pathPrefix + 'templates/tab-mentors.html',
-        controller: 'MentorsCtrl'
+      'tab-speakers': {
+        templateUrl: pathPrefix + 'templates/tab-speakers.html',
+        controller: 'SpeakersCtrl'
       }
     }
   })

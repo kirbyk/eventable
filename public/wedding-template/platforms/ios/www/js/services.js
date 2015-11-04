@@ -69,15 +69,6 @@ angular.module('starter.services', [])
     }
   ];
   
-    var giftItems = [
-      {
-        "prize_id": 2,
-        "name": "PS4",
-      }, {
-        "prize_id": 2,
-        "description": "XBOX ONE"
-      }
-    ];
   return {
     all: function() {
       return scheduleItems;

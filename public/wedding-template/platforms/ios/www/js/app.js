@@ -55,12 +55,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.mentors', {
-    url: '/mentors',
+  .state('tab.wedding-parties', {
+    url: '/wedding-parties',
     views: {
-      'tab-mentors': {
-        templateUrl: pathPrefix + 'templates/tab-mentors.html',
-        controller: 'MentorsCtrl'
+      'tab-wedding-parties': {
+        templateUrl: pathPrefix + 'templates/tab-wedding-parties.html',
+        controller: 'WeddingPartiesCtrl'
       }
     }
   })
@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   .state('tab.gifts', {
     url: '/gifts',
     views: {
-      'tab-prizes': {
+      'tab-gifts': {
         templateUrl: pathPrefix + 'templates/tab-gifts.html',
         controller: 'GiftsCtrl'
       }
