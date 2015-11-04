@@ -15,6 +15,8 @@
 //= require jquery-ui
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 //= require jquery.minicolors
 //= require jquery.minicolors.simple_form
