@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :events do
     get 'schedule', on: :member
+    get 'updates', on: :member
+    get 'mentors', on: :member
+    get 'prizes', on: :member
     get 'app', on: :member
     get 'build', on: :member
   end
