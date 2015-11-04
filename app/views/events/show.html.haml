@@ -12,15 +12,9 @@
         %li{:role => "presentation"}
           %a{"aria-controls" => "updates", "data-toggle" => "tab", :href => "#updates", :role => "tab"} Updates
         %li{:role => "presentation"}
-          %a{"aria-controls" => "prizes", "data-toggle" => "tab", :href => "#prizes", :role => "tab"}
-            - p = render 'layouts/prizes'
-            - p = p.pluralize(2)
-            = p
+          %a{"aria-controls" => "prizes", "data-toggle" => "tab", :href => "#prizes", :role => "tab"} Prizes
         %li{:role => "presentation"}
-          %a{"aria-controls" => "people", "data-toggle" => "tab", :href => "#people", :role => "tab"} 
-            - p = render 'layouts/people'
-            - p = p.pluralize(2)
-            = p
+          %a{"aria-controls" => "people", "data-toggle" => "tab", :href => "#people", :role => "tab"} Mentors
 
       .tab-content.event-panels
         #main.tab-pane.active{:role => "tabpanel"}

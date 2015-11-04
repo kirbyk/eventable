@@ -7,7 +7,7 @@
     = f.text_area :description, class: 'form-control', required: true
   .form-group
     = f.label :award
-    = f.text_area :award, class: 'form-control', required: true
+    = f.text_field :award, class: 'form-control', required: true
   .form-group
     = f.hidden_field :event_id, value: @event.id
     = f.submit "#{submit_verb} Prize", class: 'btn btn-default'

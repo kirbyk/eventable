@@ -2,41 +2,55 @@ class PeopleController < ApplicationController
   before_action :authenticate_organizer!
 
   def new
-    @event = Event.find(params[:event_id])
     @person = Person.new
+    @event = Event.find(params[:event_id])
   end 
+
+  def edit
+    @person = Person.find(params[:id])
+    @event = Event.find(@person.event_id)
+  end
 
   def create
     @person = Person.new(person_params)
-    @person.save
-    redirect_to controller: "events", action: "show", id: person_params[:event_id]
-  end
+    @event = Event.find(person_params[:event_id])
 
-  def edit
-    @event = Event.find(params[:event_id])
-    @person = Person.find(params[:person_id])
+    respond_to do |format|
+      if @person.save
+        format.html { redirect_to @event, notice: 'Mentor successfully added to event.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def update
-    @person = Person.find(params[:id]);
-    if @person.update(person_params)
+    @person = Person.find(params[:id])
+    @event = Event.find(person_params[:event_id])
+
+    respond_to do |format|
+      if @person.update(person_params)
+        format.html { redirect_to @event, notice: 'Mentor successfully updated.' }
+      else
+        format.html { render :edit }
+      end
     end
-    redirect_to controller: "events", action: "show", id: person_params[:event_id]
   end
 
   def destroy
-    id = params[:id]
-    person = Person.find_by(id: id)
-    event_id = person.event_id
-    if person.nil?
-      flash[:notice] = "Person does not exist"
-    else
-      person.destroy
+    @person = Person.find(params[:id])
+    @event = Event.find(@person.event_id)
+
+    @person.destroy
+
+    respond_to do |format|
+      format.html { redirect_to @event, notice: 'Mentor was successfully destroyed.' }
     end
-    redirect_to controller: "events", action: "show", id: event_id
   end
 
+  private
+
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :bio, :event_id)
+    params.require(:person).permit(:name, :company, :skills, :event_id)
   end
 end
