@@ -8,5 +8,10 @@ angular.module('starter.controllers', [])
 .controller('PrizesCtrl', function($scope) {})
 
 .controller('ScheduleCtrl', function($scope, ScheduleItems) {
-  $scope.scheduleItems = ScheduleItems.all();
+  ScheduleItems.all().then(function(res) {
+    console.log(res.data);
+    $scope.scheduleItems = res.data;
+  }, function(res) {
+    console.log('Error in schedule item factory');
+  })
 });
