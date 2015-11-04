@@ -4,69 +4,16 @@ angular.module('starter.services', [])
   return {
     updateItems: function() {
       // TODO: don't hard-code event number 1
-      // return $http.get('http://localhost:3000/events/1/update.json');
-      return {
-        then: function(f) {
-          f({data:[
-            {
-              "id": 2,
-              "description": "Cookies",
-              "title": "asdf"
-            },
-            {
-              "id": 3,
-              "description": "aynf;njygn",
-              "title": "tndnhyng"
-            }
-          ]});
-        }
-      };
+      return $http.get('http://localhost:3000/events/1/updates.json');
     },
     mentorItems: function() {
-      return {
-        then: function(f) {
-          f({data:[
-            {
-              "id": 2,
-              "name": "Sergey",
-              "company": "google",
-              "skills": "coding"
-            }
-          ]});
-        }
-      };
-      // return $http.get('http://localhost:3000/events/1/mentor.json');
+      return $http.get('http://localhost:3000/events/1/mentors.json');
     },
     prizeItems: function() {
-      return {
-        then: function(f) {
-          f({data:[
-            {
-              "id": 2,
-              "company": "google",
-              "description": "description",
-              "award": "award"
-            }
-          ]});
-        }
-      };
-      // return $http.get('http://localhost:3000/events/1/prize.json');
+      return $http.get('http://localhost:3000/events/1/prizes.json');
     },
     scheduleItems: function() {
-      return {
-        then: function(f) {
-          f({data:[
-            {
-              "id": 2,
-              "description": "description",
-              "start_time": "12/03/2015",
-              "end_time": "12/04/2015",
-              "title": "title"
-            }
-          ]});
-        }
-      };
-      // return $http.get('http://localhost:3000/events/1/schedule.json');
+      return $http.get('http://localhost:3000/events/1/schedule.json');
     }
   };
 });
