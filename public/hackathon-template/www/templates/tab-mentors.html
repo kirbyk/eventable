@@ -2,10 +2,12 @@
   <ion-content class="padding">
     <div class="list card" ng-repeat="item in mentorItems">
       <div class="item item-divider">
-        {{item.first_name}} &nbsp; {{item.last_name}} 
+        {{item.name}}
       </div>
       <div class="item item-body">
-        {{item.bio}}
+        Company: {{item.company}}
+        <br>
+        Skills: {{item.skills}}
       </div>
     </div>
   </ion-content>
