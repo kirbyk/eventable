@@ -1,17 +1,33 @@
 angular.module('starter.controllers', [])
 
-.controller('UpdatesCtrl', function($scope) {
+.controller('UpdatesCtrl', function($scope, AppData) {
+  AppData.updateItems().then(function(res) {
+    $scope.updateItems = res.data;
+  }, function(res) {
+    console.log('Error in app data factory');
+  })
 })
 
-.controller('MentorsCtrl', function($scope) {})
+.controller('MentorsCtrl', function($scope, AppData) {
+  AppData.mentorItems().then(function(res) {
+    $scope.mentorItems = res.data;
+  }, function(res) {
+    console.log('Error in app data factory');
+  })
+})
 
-.controller('PrizesCtrl', function($scope) {})
+.controller('PrizesCtrl', function($scope, AppData) {
+  AppData.prizeItems().then(function(res) {
+    $scope.prizeItems = res.data;
+  }, function(res) {
+    console.log('Error in app data factory');
+  })
+})
 
-.controller('ScheduleCtrl', function($scope, ScheduleItems) {
-  ScheduleItems.all().then(function(res) {
-    console.log(res.data);
+.controller('ScheduleCtrl', function($scope, AppData) {
+  AppData.scheduleItems().then(function(res) {
     $scope.scheduleItems = res.data;
   }, function(res) {
-    console.log('Error in schedule item factory');
+    console.log('Error in app data factory');
   })
 });
