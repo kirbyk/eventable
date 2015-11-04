@@ -5,7 +5,9 @@ angular.module('starter.controllers', [])
 
 .controller('MentorsCtrl', function($scope) {})
 
-.controller('PrizesCtrl', function($scope) {})
+.controller('GiftsCtrl', function($scope, GiftItems) {
+	$scope.giftItems = GiftItems.all();	
+})
 
 .controller('ScheduleCtrl', function($scope, ScheduleItems) {
   $scope.scheduleItems = ScheduleItems.all();

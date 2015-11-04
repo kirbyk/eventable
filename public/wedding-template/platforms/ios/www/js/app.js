@@ -27,7 +27,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // IS_WEB_PREVIEW is rendered on the rails app, but not in the native app.
   var pathPrefix = '';
   if (IS_WEB_PREVIEW) {
-    pathPrefix = '/hackathon-template/www/';
+    pathPrefix = '/wedding-template/www/';
   }
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -65,12 +65,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-  .state('tab.prizes', {
-    url: '/prizes',
+  .state('tab.gifts', {
+    url: '/gifts',
     views: {
       'tab-prizes': {
-        templateUrl: pathPrefix + 'templates/tab-prizes.html',
-        controller: 'PrizesCtrl'
+        templateUrl: pathPrefix + 'templates/tab-gifts.html',
+        controller: 'GiftsCtrl'
       }
     }
   })

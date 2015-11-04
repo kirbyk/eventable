@@ -1,12 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('UpdatesCtrl', function($scope) {
-})
-
+.controller('UpdatesCtrl', function($scope) {})
 .controller('MentorsCtrl', function($scope) {})
-
-.controller('PrizesCtrl', function($scope) {})
-
+.controller('GiftsCtrl', function($scope) {})
 .controller('ScheduleCtrl', function($scope, ScheduleItems) {
   $scope.scheduleItems = ScheduleItems.all();
 });
