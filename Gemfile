@@ -27,6 +27,8 @@ gem 'devise'
 gem 'jquery-minicolors-rails'
 gem 'simple_form'
 
+gem 'sidekiq'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

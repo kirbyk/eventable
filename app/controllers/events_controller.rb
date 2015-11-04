@@ -32,8 +32,9 @@ class EventsController < ApplicationController
     @schedule_items = Schedule.where(event_id: params[:id])
   end
 
-  def build
-    `cd public/hackathon-template && ionic emulate ios` # TODO: such hack. Should use sidekiq
+  def build    
+    # TODO: need to indicate type of event    
+    BuildAppWorker.perform_async({})
     redirect_to action: "show", id: params[:id]
   end
 
