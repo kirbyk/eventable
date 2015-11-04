@@ -1,0 +1,14 @@
+<ion-view view-title="Updates">
+  <ion-content class="padding">
+    <div class="list card" ng-repeat="item in updateItems">
+      <div class="item item-divider">
+        <p>
+          Updated Time: {{item.updated_at}}
+        </p>
+      </div>
+      <div class="item item-body">
+        {{item.description}}
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
