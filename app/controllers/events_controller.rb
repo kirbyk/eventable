@@ -33,8 +33,8 @@ class EventsController < ApplicationController
   end
 
   def build    
-    # TODO: need to indicate type of event    
-    BuildAppWorker.perform_async({})
+    @event = Event.find(params[:id]);
+    BuildAppWorker.perform_async({type: @event.event_type})
     redirect_to action: "show", id: params[:id]
   end
 
