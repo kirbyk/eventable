@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008210034) do
+ActiveRecord::Schema.define(version: 20151104215642) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",         null: false
@@ -48,19 +48,21 @@ ActiveRecord::Schema.define(version: 20151008210034) do
   add_index "organizers", ["reset_password_token"], name: "index_organizers_on_reset_password_token", unique: true
 
   create_table "people", force: :cascade do |t|
-    t.string   "first_name", null: false
-    t.string   "last_name",  null: false
-    t.string   "bio"
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "company"
+    t.string   "skills"
   end
 
   create_table "prizes", force: :cascade do |t|
-    t.string   "name",       null: false
     t.integer  "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "company"
+    t.string   "description"
+    t.string   "award"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 20151008210034) do
     t.datetime "end_time",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "title"
   end
 
   create_table "updates", force: :cascade do |t|
@@ -77,6 +80,7 @@ ActiveRecord::Schema.define(version: 20151008210034) do
     t.integer  "event_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "title"
   end
 
 end

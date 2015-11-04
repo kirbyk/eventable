@@ -2,41 +2,55 @@ class PrizesController < ApplicationController
   before_action :authenticate_organizer!
 
   def new
-    @event = Event.find(params[:event_id])
     @prize = Prize.new
+    @event = Event.find(params[:event_id])
   end 
+
+  def edit
+    @prize = Prize.find(params[:id])
+    @event = Event.find(@prize.event_id)
+  end
 
   def create
     @prize = Prize.new(prize_params)
-    @prize.save
-    redirect_to controller: "events", action: "show", id: prize_params[:event_id]
-  end
+    @event = Event.find(prize_params[:event_id])
 
-  def edit
-    @event = Event.find(params[:event_id])
-    @prize = Prize.find(params[:prize_id])
+    respond_to do |format|
+      if @prize.save
+        format.html { redirect_to @event, notice: 'Prize successfully added to event.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def update
-    @prize = Prize.find(params[:id]);
-    if @prize.update(prize_params)
+    @prize = Prize.find(params[:id])
+    @event = Event.find(prize_params[:event_id])
+
+    respond_to do |format|
+      if @prize.update(prize_params)
+        format.html { redirect_to @event, notice: 'Prize successfully updated.' }
+      else
+        format.html { render :edit }
+      end
     end
-    redirect_to controller: "events", action: "show", id: prize_params[:event_id]
   end
 
   def destroy
-    id = params[:id]
-    prize = Prize.find_by(id: id)
-    event_id = prize.event_id
-    if prize.nil?
-      flash[:notice] = "Person does not exist"
-    else
-      prize.destroy
+    @prize = Prize.find(params[:id])
+    @event = Event.find(@prize.event_id)
+
+    @prize.destroy
+
+    respond_to do |format|
+      format.html { redirect_to @event, notice: 'Prize was successfully destroyed.' }
     end
-    redirect_to controller: "events", action: "show", id: event_id
   end
 
+  private
+
   def prize_params
-    params.require(:prize).permit(:name, :event_id)
+    params.require(:prize).permit(:company, :description, :award, :event_id)
   end
 end

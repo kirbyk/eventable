@@ -1,23 +1,13 @@
-= simple_form_for(@prize) do |f|
-  - if @prize.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@prize.errors.count, "error")
-        = "prohibited this "
-        - p = render "layouts/prizes"
-        = p.downcase
-        = "from being saved:"
-      %ul
-        - @prize.errors.full_messages.each do |message|
-          %li#err_item= message
-  .field
-    = f.label "Name: "
-    = f.text_field :name, required: true
-  %br/
-
-  .field
-    = f.hidden_field :event_id, :value=>@event.id
-
-
-  .actions
-    = f.submit
+= form_for(@prize) do |f|
+  .form-group
+    = f.label :company
+    = f.text_field :company, class: 'form-control', required: true
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control', required: true
+  .form-group
+    = f.label :award
+    = f.text_field :award, class: 'form-control', required: true
+  .form-group
+    = f.hidden_field :event_id, value: @event.id
+    = f.submit "#{submit_verb} Prize", class: 'btn btn-default'

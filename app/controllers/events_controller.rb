@@ -32,6 +32,10 @@ class EventsController < ApplicationController
     @schedule_items = Schedule.where(event_id: params[:id])
   end
 
+  def app
+    @event = Event.find(params[:id])
+  end
+
   def build    
     @event = Event.find(params[:id]);
     BuildAppWorker.perform_async({type: @event.event_type})

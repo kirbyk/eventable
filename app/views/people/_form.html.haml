@@ -1,33 +1,13 @@
-= simple_form_for(@person) do |f|
-  - if @person.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@person.errors.count, "error")
-        = "prohibited this"
-        - p = render "layouts/people"
-        = p.downcase
-        = "from being saved:"
-      %ul
-        - @person.errors.full_messages.each do |message|
-          %li#err_item= message
-  .field
-    = f.label "First name: "
-    = f.text_field :first_name, required: true
-  %br/
-
-  .field
-    = f.label "Last name: "
-    = f.text_field :last_name, required: true
-  %br/
-
-  .field
-    = f.label "Bio: "
-    = f.text_field :bio, required: true
-  %br/
-
-  .field
-    = f.hidden_field :event_id, :value=>@event.id
-
-
-  .actions
-    = f.submit
+= form_for(@person) do |f|
+  .form-group
+    = f.label :company
+    = f.text_field :company, class: 'form-control', required: true
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control', required: true
+  .form-group
+    = f.label :skills
+    = f.text_field :skills, class: 'form-control', required: true
+  .form-group
+    = f.hidden_field :event_id, value: @event.id
+    = f.submit "#{submit_verb} Mentor", class: 'btn btn-default'

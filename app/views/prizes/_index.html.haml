@@ -1,26 +1,16 @@
-- p = render "layouts/prizes"
-- p = p.downcase
+.center
+  = link_to "Add Prize", new_prize_path(event_id: @event.id), role: :button, class: 'btn btn-default add-event-item'
+
 - if prizes.count > 0
-  .div.title
-    = prizes.count
-    = p.pluralize(prizes.count)
-    = "in #{@event.name}"
-- else
-  .div.title
-    = "No "
-    = p
-    = " for this #{@event.name}"
-.div
-  = link_to "Create new " + p, controller: "prizes", action: "new", event_id: @event.id
-- prizes.each do |p|
-  = form_for(p, :method => :delete, :id => p.id) do |f| 
-    .schedule
-      %b 
-        = "Name:" 
-      = simple_format p.name
-      .schedule_time.margin
-        = "#{p.created_at.strftime("%m/%d/%Y")}"
-      .actions.margin     
-        = f.submit "delete"
-      .margin
-        = link_to 'Edit', controller: "prizes", action: "edit", event_id: @event.id, prize_id: p.id
+  .list-group
+  - prizes.each do |p|
+    .list-group-item 
+      %h4.list-group-item-heading #{p.award} - #{p.company}
+      %p.list-group-item-text
+        = p.description
+      = link_to edit_prize_path(p) do
+        %button.btn.btn-default.edit-button{:type => "button"}
+          %span.glyphicon.glyphicon-pencil
+      = link_to p, method: :delete do
+        %button.btn.btn-default.remove-button{:type => "button"}
+          %span.glyphicon.glyphicon-remove

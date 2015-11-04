@@ -11,6 +11,7 @@ Installation
 
 ```bash
 $ gem install rails
+$ brew install redis
 $ npm install -g cordova ionic ios-sim
 $ cordova platform add ios
 $ bundle install
@@ -22,6 +23,8 @@ Deployment
 
 ```bash
 $ rails s
+$ redis-server
+$ bundle exec sidekiq
 $ browser http://localhost:3000
 ```
 
