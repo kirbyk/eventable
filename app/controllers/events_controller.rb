@@ -32,6 +32,18 @@ class EventsController < ApplicationController
     @schedule_items = Schedule.where(event_id: params[:id])
   end
 
+  def updates
+    @updates = Update.where(event_id: params[:id])
+  end
+
+  def prizes
+    @prizes = Prize.where(event_id: params[:id])
+  end
+
+  def mentors
+    @mentors = Person.where(event_id: params[:id])
+  end
+
   def app
     @event = Event.find(params[:id])
   end
