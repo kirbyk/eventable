@@ -5,9 +5,11 @@ class BuildAppWorker
   #TODO: add a variable to indicate what template to build
   def perform(options)
     
-    puts "starting app for #{options["type"]}"
-    
-    case options["type"]
+    puts "starting app for #{options["event"].type}"
+
+    Rake::Task['build_app:set_event_id'].invoke(options["event"].id)
+
+    case options["event"].type
     when "Wedding"
       `cd public/wedding-template && ionic emulate ios`
     when "Hackathon"
