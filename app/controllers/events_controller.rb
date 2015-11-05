@@ -50,7 +50,7 @@ class EventsController < ApplicationController
 
   def build    
     @event = Event.find(params[:id]);
-    BuildAppWorker.perform_async({type: @event.event_type})
+    BuildAppWorker.perform_async({event_type: @event.event_type, event_id: @event.id})
     redirect_to action: "show", id: params[:id]
   end
 

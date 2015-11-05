@@ -32,6 +32,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 gem 'sidekiq'
 
+gem 'rake'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
