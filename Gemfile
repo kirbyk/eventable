@@ -14,28 +14,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "rmagick"
 gem "carrierwave"
-
 gem 'haml', '~> 4.0.7'
-
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
-
-gem 'quiet_assets', group: :development
-
 gem 'devise'
-
-gem 'jquery-minicolors-rails'
 gem 'simple_form'
-
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
-
 gem 'sidekiq'
-
 gem 'rake'
+gem 'bootstrap_colorpicker_rails'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'quiet_assets'
 end
