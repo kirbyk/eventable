@@ -22,11 +22,9 @@ angular.module('starter.services', [])
     },
     fgstyle: function() {
       return $http.get(API_ENDPOINT + EVENT_ID + '/fgstyle.json');
-      return $http.get('http://localhost:3000/events/' + EVENT_ID + '/fgstyle.json');
     },
     bgstyle: function() {
       return $http.get(API_ENDPOINT + EVENT_ID + '/bgstyle.json');
-      return $http.get('http://localhost:3000/events/' + EVENT_ID + '/bgstyle.json');
     },
   };
 });
