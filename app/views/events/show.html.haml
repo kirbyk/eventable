@@ -48,5 +48,3 @@
 
         #people.tab-pane{:role => "tabpanel"}
           = render :partial => 'people/index', locals: { people: @event.people }
-
-      = link_to 'Build App', build_event_path(@event), role: :button, class: 'btn btn-default'
