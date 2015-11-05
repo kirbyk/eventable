@@ -25,7 +25,7 @@
             .navbar-brand Eventable
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
             %ul.nav.navbar-nav.navbar-right
-              - if @event.id
+              - if should_show_build
                 %li
                   .navbar-form
                     .form-group
