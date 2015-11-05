@@ -25,10 +25,11 @@
             .navbar-brand Eventable
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
             %ul.nav.navbar-nav.navbar-right
-              %li
-                .navbar-form
-                  .form-group
-                    = link_to 'Build App', build_event_path(@event), role: :button, class: 'btn btn-default'
+              - if @event.id
+                %li
+                  .navbar-form
+                    .form-group
+                      = link_to 'Build App', build_event_path(@event), role: :button, class: 'btn btn-default'
               %li
                 = link_to "Logout", destroy_organizer_session_path, method: :delete
 
