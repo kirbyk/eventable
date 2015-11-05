@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_organizer!
+  before_action :authenticate_organizer!, except: [:schedule, :updates, :prizes, :mentors]
   layout false, only: [:app]
 
   def new
