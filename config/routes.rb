@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     get 'prizes', on: :member
     get 'app', on: :member
     get 'build', on: :member
+    get 'fgstyle', on: :member
+    get 'bgstyle', on: :member
   end
   resources :schedules
   resources :updates

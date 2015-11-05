@@ -1,0 +1,1 @@
+json.set! :'background-color', @bgcolor

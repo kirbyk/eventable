@@ -19,6 +19,12 @@ angular.module('starter.services', [])
     },
     scheduleItems: function() {
       return $http.get(API_ENDPOINT + EVENT_ID + '/schedule.json');
-    }
+    },
+    fgstyle: function() {
+      return $http.get(API_ENDPOINT + EVENT_ID + '/fgstyle.json');
+    },
+    bgstyle: function() {
+      return $http.get(API_ENDPOINT + EVENT_ID + '/bgstyle.json');
+    },
   };
 });
