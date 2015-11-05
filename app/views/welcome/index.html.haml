@@ -5,6 +5,10 @@
     = link_to "Create Event", new_event_path
     %br
     = link_to "Logout", destroy_organizer_session_path, method: :delete
+    
+    - @events.each do | event |
+      = link_to event_path(event) do
+        = event.name
   - else
     .welcome-hero
       .welcome-title Eventable
