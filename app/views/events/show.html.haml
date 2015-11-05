@@ -14,37 +14,16 @@
         %li{:role => "presentation"}
           %a{"aria-controls" => "prizes", "data-toggle" => "tab", :href => "#prizes", :role => "tab"} Prizes
         %li{:role => "presentation"}
-          %a{"aria-controls" => "people", "data-toggle" => "tab", :href => "#people", :role => "tab"} Mentorst 
+          %a{"aria-controls" => "people", "data-toggle" => "tab", :href => "#people", :role => "tab"} Mentors
 
       .tab-content.event-panels
         #main.tab-pane.active{:role => "tabpanel"}
-          %p
-            = image_tag @event.app_logo.to_s, :class =>"img_preview"
-          %p
-            %strong Event Name:
-            = @event.name
-          %p
-            %strong Event Type:
-            = @event.event_type
-          %p
-            %strong App Foreground Color:
-            = @event.app_fgcolor
-          %p
-            %strong App Background Color:
-            = @event.app_bgcolor
-          %p
-            %strong Organizer:
-            = @event.organizer_id
-          = link_to 'Edit Event', edit_event_path(@event), role: :button
-
+          = render 'main'
         #schedule.tab-pane{:role => "tabpanel"}
           = render :partial => 'schedules/index', locals: { schedules: @event.schedules }
-
         #updates.tab-pane{:role => "tabpanel"}
           = render :partial => 'updates/index', locals: { updates: @event.updates }
-
         #prizes.tab-pane{:role => "tabpanel"}
           = render :partial => 'prizes/index', locals: { prizes: @event.prizes }
-
         #people.tab-pane{:role => "tabpanel"}
           = render :partial => 'people/index', locals: { people: @event.people }

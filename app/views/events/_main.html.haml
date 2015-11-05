@@ -1,0 +1,16 @@
+.center
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        = @event.name
+    .panel-body
+      %p
+        = image_tag @event.app_logo.to_s, :class =>"img_preview"
+      %p
+        %strong App Foreground Color:
+        = @event.app_fgcolor
+      %p
+        %strong App Background Color:
+        = @event.app_bgcolor
+    .panel-footer
+      = link_to 'Edit Event Details', edit_event_path(@event), role: :button, class: 'btn btn-default'
