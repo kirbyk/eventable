@@ -26,6 +26,13 @@ angular.module('starter.controllers', [])
 
 .controller('ScheduleCtrl', function($scope, AppData) {
   AppData.scheduleItems().then(function(res) {
+
+    res.data.map(function(item) {
+      item.start_time = moment(item.start_time).format('h:mm A');
+      item.end_time = moment(item.end_time).format('h:mm A');
+      return item;
+    });
+
     $scope.scheduleItems = res.data;
   }, function(res) {
     console.log('Error in app data factory');
