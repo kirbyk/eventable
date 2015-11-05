@@ -59,12 +59,10 @@ class EventsController < ApplicationController
   end
 
   def fgstyle
-    app
-    @fgcolor = @event.app_fgcolor
+    @fgcolor = Event.find(params[:id]).app_fgcolor
   end
 
   def bgstyle
-    app
-    @bgcolor = @event.app_bgcolor
+    @bgcolor = Event.find(params[:id]).app_bgcolor
   end
 end
