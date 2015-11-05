@@ -13,6 +13,12 @@ angular.module('starter.services', [])
     },
     scheduleItems: function() {
       return $http.get('http://localhost:3000/events/' + EVENT_ID + '/schedule.json');
-    }
+    },
+    fgstyle: function() {
+      return $http.get('http://localhost:3000/events/' + EVENT_ID + '/fgstyle.json');
+    },
+    bgstyle: function() {
+      return $http.get('http://localhost:3000/events/' + EVENT_ID + '/bgstyle.json');
+    },
   };
 });
