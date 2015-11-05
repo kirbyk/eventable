@@ -7,20 +7,23 @@
       %ul
         - @event.errors.full_messages.each do |message|
           %li#err_item= message
-  .field
-    = f.label "Event name:"
-    = f.text_field :name, required: true
-  %br/
 
-  .field
-    = f.label "Event type:"
-    = f.select :event_type, ['Hackathon', 'Wedding', 'Conference']
-  %br/
-  .field 
-    = f.input :app_fgcolor, as: :minicolors, label: "App foreground color"
-  %br/
-  .field 
-    = f.input :app_bgcolor, as: :minicolors, label: "App background color"
+  .form-group
+    = f.label :name, 'Event Name'
+    = f.text_field :name, class: 'form-control', required: true
+
+  .form-group
+    = f.label :event_type, 'Event Type'
+    = f.select :event_type, ['Hackathon', 'Wedding', 'Conference'], {}, { class: 'form-control' }
+
+  .form-group
+    = f.label :app_fgcolor, 'App Foreground Color'
+    = f.text_field :app_fgcolor, class: 'form-control demo3', required: true
+
+  .form-group
+    = f.label :app_bgcolor, 'App Background Color'
+    = f.text_field :app_bgcolor, class: 'form-control demo2', required: true
+
   %br/
   .field
     %br/
@@ -38,15 +41,20 @@
         = f.file_field :app_logo, :id=>"question_image"
 
   .actions
-    = f.submit
+    = f.submit class: 'btn btn-default'
 
 :javascript
   $(document).ready(function() {
+
+    $('.demo2').colorpicker();
+    $('.demo3').colorpicker();
+
     $("#question_image").change(function(){
         readURL(this);
     });
 
   });
+
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();

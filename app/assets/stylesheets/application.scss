@@ -12,12 +12,12 @@
  *
  *= require_tree .
  *= require_self
- *= require jquery.minicolors
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
+@import "bootstrap-colorpicker";
 
 .center {
   text-align: center;
