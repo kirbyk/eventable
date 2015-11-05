@@ -3,17 +3,16 @@ angular.module('starter.services', [])
 .factory('AppData', function($http) {
   return {
     updateItems: function() {
-      // TODO: don't hard-code event number 1
-      return $http.get('http://localhost:3000/events/1/updates.json');
+      return $http.get('http://localhost:3000/events/' + EVENT_ID + '/updates.json');
     },
     mentorItems: function() {
-      return $http.get('http://localhost:3000/events/1/mentors.json');
+      return $http.get('http://localhost:3000/events/' + EVENT_ID + '/mentors.json');
     },
     prizeItems: function() {
-      return $http.get('http://localhost:3000/events/1/prizes.json');
+      return $http.get('http://localhost:3000/events/' + EVENT_ID + '/prizes.json');
     },
     scheduleItems: function() {
-      return $http.get('http://localhost:3000/events/1/schedule.json');
+      return $http.get('http://localhost:3000/events/' + EVENT_ID + '/schedule.json');
     }
   };
 });
