@@ -19,3 +19,5 @@ tmp
 dump.rdb
 
 *.log
+
+public/uploads
