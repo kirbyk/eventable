@@ -3,10 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .img_preview {
-  border: 0px solid;
-  border-radius: 40px;
-  width: 200px;
-  height: 200px;
+  max-height: 150px;
 }
 
 .iphone6 {
@@ -45,4 +42,13 @@
   border-radius: 4px;
   background-color: rgba(0,0,0,.5);
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.app-colorpicker > input {
+  text-transform: uppercase;
+}
+
+.color-preview {
+  height: 20px;
+  margin-left: 10px;
 }

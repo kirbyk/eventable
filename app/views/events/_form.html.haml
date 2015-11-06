@@ -18,49 +18,32 @@
 
   .form-group
     = f.label :app_fgcolor, 'App Foreground Color'
-    = f.text_field :app_fgcolor, class: 'form-control demo3', required: true
+    .input-group.app-colorpicker
+      = f.text_field :app_fgcolor, class: 'form-control', value: '#000000', required: true
+      %span.input-group-addon
+        %i
 
   .form-group
     = f.label :app_bgcolor, 'App Background Color'
-    = f.text_field :app_bgcolor, class: 'form-control demo2', required: true
+    .input-group.app-colorpicker
+      = f.text_field :app_bgcolor, class: 'form-control', value: '#FFFFFF', required: true
+      %span.input-group-addon
+        %i
+  
+  .form-group
+    = f.label :app_logo, 'App Logo'
 
-  %br/
-  .field
-    %br/
-    - if @event.app_logo.present?
-      = image_tag @event.app_logo.to_s, :class => "img_preview"
-    - else
-      = image_tag "default", :class=> "img_preview"
-    .field
-      .image_container.btn.btn-primary
-        %span
-        - if @event.app_logo.present?
-          Change Logo
-        - else
-          Upload Logo
-        = f.file_field :app_logo, :id=>"question_image"
+    %br
+    .center
+      - if @event.app_logo.present?
+        = image_tag @event.app_logo.to_s, :class => "img_preview"
+
+    = f.file_field :app_logo, id: 'logo', class: 'form-control', required: true
 
   .actions
     = f.submit class: 'btn btn-default'
 
 :javascript
   $(document).ready(function() {
-
-    $('.demo2').colorpicker();
-    $('.demo3').colorpicker();
-
-    $("#question_image").change(function(){
-        readURL(this);
-    });
-
+    $('.app-colorpicker').colorpicker();
   });
-
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $('.img_preview').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
