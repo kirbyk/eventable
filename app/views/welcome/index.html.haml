@@ -22,9 +22,12 @@
       .modal-header
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} &times;
-        %h4.modal-title Login and Signup
-      .modal-body
-        %br
-        = link_to "Log in", new_organizer_session_path
-        %br
-        = link_to "Sign up", new_organizer_registration_path  
+        %h4.modal-title.center Login and Signup
+    
+      .modal-body.row{style:"margin:50px;"}
+        .row{style:"margin-bottom:20px;"}
+          
+          = link_to "Log in", new_organizer_session_path, {:class =>"button col-md-6 col-md-offset-3 btn btn-primary"}
+        .row
+          = link_to "Sign up", new_organizer_registration_path, {:class =>"button col-md-6 col-md-offset-3 btn btn-info"}
+
