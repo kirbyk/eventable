@@ -8,13 +8,13 @@
         %li.active{:role => "presentation"}
           %a{"aria-controls" => "main", "data-toggle" => "tab", :href => "#main", :role => "tab"} Main
         %li{:role => "presentation"}
-          %a{"aria-controls" => "schedule", "data-toggle" => "tab", :href => "#schedule", :role => "tab"} Schedule
+          %a{"aria-controls" => "schedule", "data-toggle" => "tab", :href => "#schedule", :role => "tab"} #{@scheduleTab}
         %li{:role => "presentation"}
-          %a{"aria-controls" => "updates", "data-toggle" => "tab", :href => "#updates", :role => "tab"} Updates
+          %a{"aria-controls" => "updates", "data-toggle" => "tab", :href => "#updates", :role => "tab"} #{@updatesTab}
         %li{:role => "presentation"}
-          %a{"aria-controls" => "prizes", "data-toggle" => "tab", :href => "#prizes", :role => "tab"} Prizes
+          %a{"aria-controls" => "prizes", "data-toggle" => "tab", :href => "#prizes", :role => "tab"} #{@prizesTab}
         %li{:role => "presentation"}
-          %a{"aria-controls" => "people", "data-toggle" => "tab", :href => "#people", :role => "tab"} Mentors
+          %a{"aria-controls" => "people", "data-toggle" => "tab", :href => "#people", :role => "tab"} #{@peopleTab}
 
       .tab-content.event-panels
         #main.tab-pane.active{:role => "tabpanel"}

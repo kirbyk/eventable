@@ -15,6 +15,19 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    # Set tab names
+    @scheduleTab = "Schedule"
+    @updatesTab = "Updates"
+    @prizesTab = "Prizes"
+    @peopleTab = "Mentors"
+    case @event.event_type
+    when "Wedding"
+      @prizesTab = "Gifts"
+      @peopleTab = "Wedding Party"
+    when "Conference"
+      @prizesTab = "Awards"
+      @peopleTab = "Speakers"
+    end
   end
 
   def edit
