@@ -25,8 +25,21 @@ class EventsController < ApplicationController
       @prizesTab = "Gifts"
       @peopleTab = "Wedding Party"
     when "Conference"
-      @prizesTab = "Awards"
       @peopleTab = "Speakers"
+    end
+
+    @prizeType = "prize"
+    case @event.event_type
+    when "Wedding"
+      @prizeType = "gift"
+    end
+
+    @peopleType = "mentor"
+    case @event.event_type
+    when "Wedding"
+      @peopleType = "person"
+    when "Conference"
+      @peopleType = "speaker"
     end
   end
 
