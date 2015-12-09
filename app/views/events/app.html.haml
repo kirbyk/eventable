@@ -4,16 +4,16 @@
     %meta{:charset => "utf-8"}
       %meta{:content => "initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width", :name => "viewport"}
         %title
-        %link{:href => "/hackathon-template/www/lib/ionic/css/ionic.css", :rel => "stylesheet"}
-          %link{:href => "/hackathon-template/www/css/style.css", :rel => "stylesheet"}
+        %link{:href => "/#{@template}/www/lib/ionic/css/ionic.css", :rel => "stylesheet"}
+          %link{:href => "/#{@template}/www/css/style.css", :rel => "stylesheet"}
             :javascript
               IS_WEB_PREVIEW = true;
               EVENT_ID = #{@event.id}
-            %script{:src => "/hackathon-template/www/lib/ionic/js/ionic.bundle.js"}
-            %script{:src => "/hackathon-template/www/lib/moment/min/moment.min.js"}
-            %script{:src => "/hackathon-template/www/js/app.js"}
-            %script{:src => "/hackathon-template/www/js/controllers.js"}
-            %script{:src => "/hackathon-template/www/js/services.js"}
+            %script{:src => "/#{@template}/www/lib/ionic/js/ionic.bundle.js"}
+            %script{:src => "/#{@template}/www/lib/moment/min/moment.min.js"}
+            %script{:src => "/#{@template}/www/js/app.js"}
+            %script{:src => "/#{@template}/www/js/controllers.js"}
+            %script{:src => "/#{@template}/www/js/services.js"}
   %body{"ng-app" => "starter"}
     %ion-nav-bar.bar-stable
       %ion-nav-back-button

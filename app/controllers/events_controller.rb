@@ -46,6 +46,16 @@ class EventsController < ApplicationController
 
   def app
     @event = Event.find(params[:id])
+
+    case @event.event_type
+    when "Wedding"
+      @template = "wedding-template"
+    when "Hackathon"
+      @template = "hackathon-template"
+    when "Conference"
+      @template = "conference-template"
+    end
+    
   end
 
   def build    

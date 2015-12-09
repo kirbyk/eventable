@@ -1,18 +1,16 @@
 <ion-view view-title="Schedule">
-  <ion-content class="padding">
-
+  <ion-content class="padding" ng-style="bgstyle">
     <div class="list card" ng-repeat="item in scheduleItems">
-      <div class="item item-divider">
-        <p>
-          Start Time: {{item.start_time}}
-          <br />
-          End Time: {{item.end_time}}
+      <div class="item item-divider" ng-style="fgstyle">
+        {{item.title}}
+        <br>
+        <p ng-style="fgstyle">
+          {{item.start_time}} - {{item.end_time}}
         </p>
       </div>
-      <div class="item item-body">
+      <div class="item item-body" ng-style="fgstyle">
         {{item.description}}
       </div>
     </div>
-
   </ion-content>
 </ion-view>

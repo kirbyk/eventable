@@ -27,7 +27,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // IS_WEB_PREVIEW is rendered on the rails app, but not in the native app.
   var pathPrefix = '';
   if (IS_WEB_PREVIEW) {
-    pathPrefix = '/hackathon-template/www/';
+    pathPrefix = '/conference-template/www/';
   }
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -86,6 +86,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/updates');
+  $urlRouterProvider.otherwise('/tab/schedule');
 
 });
