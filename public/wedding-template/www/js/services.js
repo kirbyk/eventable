@@ -1,78 +1,30 @@
 angular.module('starter.services', [])
 
-//
-// .factory('GiftItems', function($http) {
-//
-//   // var headers = {
-//   //   'Access-Control-Allow-Origin' : '*',
-//   //   'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
-//   //   'Content-Type': 'application/json',
-//   //   'Accept': 'application/json'
-//   // };
-//   //
-//   // $http({
-//   //   method: "GET",
-//   //   headers: headers,
-//   //   url: 'http://localhost:3000/events/2/schedule.json'
-//   // }).then(function(res) {
-//   //   console.log(res);
-//   // }, function(res) {
-//   //   console.log('Error in schedule item factory');
-//   // });
-//
-//   var giftItems = [
-//     {
-//       "prize_id": 2,
-//       "name": "PS4",
-//     }, {
-//       "prize_id": 2,
-//       "description": "XBOX ONE"
-//     }
-//   ];
-//
-//   return {
-//     all: function() {
-//       return giftItems;
-//     }
-//   };
-// });
-
-
-.factory('ScheduleItems', function($http) {
-
-  // var headers = {
-  //   'Access-Control-Allow-Origin' : '*',
-  //   'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
-  //   'Content-Type': 'application/json',
-  //   'Accept': 'application/json'
-  // };
-  //
-  // $http({
-  //   method: "GET",
-  //   headers: headers,
-  //   url: 'http://localhost:3000/events/2/schedule.json'
-  // }).then(function(res) {
-  //   console.log(res);
-  // }, function(res) {
-  //   console.log('Error in schedule item factory');
-  // });
-
-  var scheduleItems = [
-    {
-      "schedule_id": 2,
-      "description": "Cookies",
-      "start_time": "12/03/2015",
-      "end_time": "12/04/2015"
-    }, {
-      "schedule_id": 3,
-      "description": "Shit"
-    }
-  ];
+.factory('AppData', function($http) {
+  if (IS_WEB_PREVIEW) {
+    API_ENDPOINT = 'http://localhost:3000/events/';
+  } else {
+    API_ENDPOINT = 'https://kirby.ngrok.io/events/';
+  }
   
   return {
-    all: function() {
-      return scheduleItems;
-    }
-	
+    updateItems: function() {
+      return $http.get(API_ENDPOINT + EVENT_ID + '/updates.json');
+    },
+    peopleItems: function() {
+      return $http.get(API_ENDPOINT + EVENT_ID + '/mentors.json');
+    },
+    giftItems: function() {
+      return $http.get(API_ENDPOINT + EVENT_ID + '/prizes.json');
+    },
+    scheduleItems: function() {
+      return $http.get(API_ENDPOINT + EVENT_ID + '/schedule.json');
+    },
+    fgstyle: function() {
+      return $http.get(API_ENDPOINT + EVENT_ID + '/fgstyle.json');
+    },
+    bgstyle: function() {
+      return $http.get(API_ENDPOINT + EVENT_ID + '/bgstyle.json');
+    },
   };
 });

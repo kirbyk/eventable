@@ -1,12 +1,12 @@
 <ion-view view-title="Updates">
-  <ion-content class="padding">
+  <ion-content class="padding" ng-style="bgstyle">
     <div class="list card" ng-repeat="item in updateItems">
-      <div class="item item-divider">
-        <p>
-          Updated Time: {{item.updated_at}}
+      <div class="item item-divider" ng-style="fgstyle">
+        <p ng-style="fgstyle">
+          {{item.title}}
         </p>
       </div>
-      <div class="item item-body">
+      <div class="item item-body" ng-style="fgstyle">
         {{item.description}}
       </div>
     </div>
