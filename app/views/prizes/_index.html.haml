@@ -5,7 +5,10 @@
   .list-group
   - prizes.each do |p|
     .list-group-item 
-      %h4.list-group-item-heading #{p.award} - #{p.company}
+      - if @event.event_type == "Hackathon"
+        %h4.list-group-item-heading #{p.award} - #{p.company}
+      - else
+        %h4.list-group-item-heading #{p.award}
       %p.list-group-item-text
         = p.description
       = link_to edit_prize_path(p) do

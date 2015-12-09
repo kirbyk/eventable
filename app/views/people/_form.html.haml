@@ -1,13 +1,15 @@
 = form_for(@person) do |f|
-  .form-group
-    = f.label :company
-    = f.text_field :company, class: 'form-control', required: true
+  - if @event.event_type == "Hackathon"
+    .form-group
+      = f.label :company
+      = f.text_field :company, class: 'form-control', required: true
   .form-group
     = f.label :name
     = f.text_field :name, class: 'form-control', required: true
-  .form-group
-    = f.label :skills
-    = f.text_field :skills, class: 'form-control', required: true
+  - if @event.event_type == "Hackathon"
+    .form-group
+      = f.label :skills
+      = f.text_field :skills, class: 'form-control', required: true
   .form-group
     = f.hidden_field :event_id, value: @event.id
     = f.submit "#{submit_verb} #{@peopleType}", class: 'btn btn-default'
