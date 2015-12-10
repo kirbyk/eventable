@@ -5,11 +5,13 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
   def after_sign_in_path_for(resource)
-    if current_organizer.event
-      event_path(current_organizer.event)
-    else
-      new_event_path
-    end
+    # if current_organizer.event
+    #   root_path
+    #   #event_path(current_organizer.event)
+    # else
+    #   new_event_path
+    # end
+    root_path
   end
 
   private

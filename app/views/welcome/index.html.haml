@@ -1,14 +1,19 @@
 .welcome
   - if organizer_signed_in?
-    Yo, you're logged in!
-    %br
-    = link_to "Create Event", new_event_path
-    %br
-    = link_to "Logout", destroy_organizer_session_path, method: :delete
-    
-    - @events.each do | event |
-      = link_to event_path(event) do
-        = event.name
+    .col-md-8.col-md-offset-2.text-center.trans-container
+      .row{class:"btn btn-info col-md-2 col-md-offset-5 btn-lg"}
+        = link_to "Create Event", new_event_path, class:"button"
+      %br 
+      %br 
+      %br 
+      %hr.short-line
+      %h3 My Events
+      - if @events.empty?
+        You don't have any event. Let's create one!
+      - @events.each do | event |
+        = link_to event_path(event) do
+          %h4
+            = event.name
   - else
     .welcome-hero
       .welcome-title Eventable
