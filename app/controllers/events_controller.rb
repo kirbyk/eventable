@@ -13,6 +13,11 @@ class EventsController < ApplicationController
     redirect_to action: "show", id: @event.id
   end
 
+  def index
+    Event.delete(params[:id])
+    redirect_to root_path
+  end
+
   def show
     @event = Event.find(params[:id])
     # Set tab names

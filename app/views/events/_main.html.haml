@@ -14,3 +14,5 @@
         %span.btn.btn-default.color-preview{style: "background-color: #{@event.app_bgcolor}"}
     .panel-footer
       = link_to 'Edit Event Details', edit_event_path(@event), role: :button, class: 'btn btn-default'
+    .panel-footer
+      = link_to 'Delete Event', controller: "events", method: "delete", id: @event.id, role: :button, class: 'btn btn-default'
