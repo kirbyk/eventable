@@ -1,10 +1,8 @@
 .welcome
   - if organizer_signed_in?
     .col-md-8.col-md-offset-2.text-center.trans-container
-      .row{class:"btn btn-info col-md-2 col-md-offset-5 btn-lg"}
-        = link_to "Create Event", new_event_path, class:"button"
-      %br 
-      %br 
+      .row
+        = link_to "Create Event", new_event_path, class:" btn btn-info col-md-2 col-md-offset-5 btn-lg"
       %br 
       %hr.short-line
       %h3 My Events
