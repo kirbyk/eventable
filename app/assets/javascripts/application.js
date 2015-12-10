@@ -18,6 +18,7 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require bootstrap-colorpicker
+//= require sweet-alert
 //= require_tree .
 
 $('#myModal').on('shown.bs.modal', function () {

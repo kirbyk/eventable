@@ -1,4 +1,5 @@
 class UpdatesController < ApplicationController
+  include UpdateHelper
   before_action :authenticate_organizer!
 
   def new
@@ -14,6 +15,8 @@ class UpdatesController < ApplicationController
   def create    
     @update = Update.new(update_params)
     @event = Event.find(update_params[:event_id])
+
+    send_push_notification(@event.ionic_id, @update)
 
     respond_to do |format|
       if @update.save

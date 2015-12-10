@@ -24,6 +24,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'sidekiq'
 gem 'rake'
 gem 'bootstrap_colorpicker_rails'
+gem 'sweetalert-rails'
+gem 'rest-client'
 
 group :development, :test do
   gem 'byebug'

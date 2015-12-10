@@ -27,3 +27,29 @@
           = render :partial => 'prizes/index', locals: { prizes: @event.prizes }
         #people.tab-pane{:role => "tabpanel"}
           = render :partial => 'people/index', locals: { people: @event.people }
+
+
+:javascript
+  $('#build_app').click(function(e) {
+    e.preventDefault();
+
+    var url = e.target.href;
+    $.getJSON(url, function() {
+      sweetAlert({
+        title: 'Your app is building...',
+        text: '<img src="/img/loading-spin.svg" alt="Loading icon" />',
+        html: true,
+        showConfirmButton: false,
+        timer: 10000
+      });
+
+      setTimeout(function() {
+        sweetAlert({
+          title: 'Your app built successfully!',
+          text: 'Enter the following code to view it on iOS.<br><strong>#{@event.ionic_id}</strong>',
+          html: true,
+          type: 'success'
+        });
+      }, 10250);
+    });
+  });

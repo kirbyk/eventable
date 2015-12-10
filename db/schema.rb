@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104215642) do
+ActiveRecord::Schema.define(version: 20151210195223) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",         null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20151104215642) do
     t.datetime "updated_at",   null: false
     t.string   "app_fgcolor"
     t.string   "app_bgcolor"
+    t.string   "ionic_id"
   end
 
   add_index "events", ["event_type"], name: "index_events_on_event_type"

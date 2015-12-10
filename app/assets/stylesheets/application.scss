@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require sweet-alert
  */
 
 @import "bootstrap-sprockets";
@@ -25,4 +26,16 @@
 
 .add-event-item {
   margin-top: 20px;
+}
+
+.sweet-alert,
+.sweet-alert .sa-icon.sa-success::before,
+.sweet-alert .sa-icon.sa-success::after,
+.sweet-alert .sa-icon.sa-success .sa-fix {
+  background-color: #6EA7C1 !important;
+}
+
+.sweet-alert h2,
+.sweet-alert p {
+  color: #fff !important;
 }
