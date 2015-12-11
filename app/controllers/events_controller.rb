@@ -14,8 +14,39 @@ class EventsController < ApplicationController
     redirect_to action: "show", id: @event.id
   end
 
+  def index
+    Event.delete(params[:id])
+    redirect_to root_path
+  end
+
   def show
     @event = Event.find(params[:id])
+    # Set tab names
+    @scheduleTab = "Schedule"
+    @updatesTab = "Updates"
+    @prizesTab = "Prizes"
+    @peopleTab = "Mentors"
+    case @event.event_type
+    when "Wedding"
+      @prizesTab = "Gifts"
+      @peopleTab = "Wedding Party"
+    when "Conference"
+      @peopleTab = "Speakers"
+    end
+
+    @prizeType = "prize"
+    case @event.event_type
+    when "Wedding"
+      @prizeType = "gift"
+    end
+
+    @peopleType = "mentor"
+    case @event.event_type
+    when "Wedding"
+      @peopleType = "person"
+    when "Conference"
+      @peopleType = "speaker"
+    end
   end
 
   def edit
@@ -47,6 +78,16 @@ class EventsController < ApplicationController
 
   def app
     @event = Event.find(params[:id])
+
+    case @event.event_type
+    when "Wedding"
+      @template = "wedding-template"
+    when "Hackathon"
+      @template = "hackathon-template"
+    when "Conference"
+      @template = "conference-template"
+    end
+    
   end
 
   def build    

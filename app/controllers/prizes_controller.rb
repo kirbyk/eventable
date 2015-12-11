@@ -1,14 +1,24 @@
 class PrizesController < ApplicationController
   before_action :authenticate_organizer!
 
+  def setPrizeType
+    @prizeType = "prize"
+    case @event.event_type
+    when "Wedding"
+      @prizeType = "gift"
+    end
+  end
+
   def new
     @prize = Prize.new
     @event = Event.find(params[:event_id])
+    setPrizeType
   end 
 
   def edit
     @prize = Prize.find(params[:id])
     @event = Event.find(@prize.event_id)
+    setPrizeType
   end
 
   def create

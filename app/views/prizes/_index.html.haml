@@ -1,11 +1,14 @@
 .center
-  = link_to "Add Prize", new_prize_path(event_id: @event.id), role: :button, class: 'btn btn-default'
+  = link_to "Add #{@prizeType}", new_prize_path(event_id: @event.id), role: :button, class: 'btn btn-default'
 
 - if prizes.count > 0
   .list-group
   - prizes.each do |p|
     .list-group-item 
-      %h4.list-group-item-heading #{p.award} - #{p.company}
+      - if @event.event_type == "Hackathon"
+        %h4.list-group-item-heading #{p.award} - #{p.company}
+      - else
+        %h4.list-group-item-heading #{p.award}
       %p.list-group-item-text
         = p.description
       = link_to edit_prize_path(p) do

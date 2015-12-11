@@ -19,14 +19,20 @@
   .form-group
     = f.label :app_fgcolor, 'App Foreground Color'
     .input-group.app-colorpicker
-      = f.text_field :app_fgcolor, class: 'form-control', value: '#000000', required: true
+      - if @event.app_fgcolor.present?
+        = f.text_field :app_fgcolor, class: 'form-control', value: @event.app_fgcolor, required: true
+      - else
+        = f.text_field :app_fgcolor, class: 'form-control', value: '#000000', required: true
       %span.input-group-addon
         %i
 
   .form-group
     = f.label :app_bgcolor, 'App Background Color'
     .input-group.app-colorpicker
-      = f.text_field :app_bgcolor, class: 'form-control', value: '#FFFFFF', required: true
+      - if @event.app_bgcolor.present?
+        = f.text_field :app_bgcolor, class: 'form-control', value: @event.app_bgcolor, required: true
+      - else
+        = f.text_field :app_bgcolor, class: 'form-control', value: '#ffffff', required: true
       %span.input-group-addon
         %i
   
@@ -40,7 +46,6 @@
         = f.file_field :app_logo, id: 'logo', class: 'form-control'
       - else
         = f.file_field :app_logo, id: 'logo', class: 'form-control', required: true
-
 
   .actions
     = f.submit class: 'btn btn-default'

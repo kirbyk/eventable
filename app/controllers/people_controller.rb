@@ -1,14 +1,26 @@
 class PeopleController < ApplicationController
   before_action :authenticate_organizer!
 
+  def setPeopleType
+    @peopleType = "mentor"
+    case @event.event_type
+    when "Wedding"
+      @peopleType = "person"
+    when "Conference"
+      @peopleType = "speaker"
+    end
+  end
+
   def new
     @person = Person.new
     @event = Event.find(params[:event_id])
+    setPeopleType
   end 
 
   def edit
     @person = Person.find(params[:id])
     @event = Event.find(@person.event_id)
+    setPeopleType
   end
 
   def create

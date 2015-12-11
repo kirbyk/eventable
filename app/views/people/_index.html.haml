@@ -1,13 +1,17 @@
 .center
-  = link_to "Add Mentor", new_person_path(event_id: @event.id), role: :button, class: 'btn btn-default'
+  = link_to "Add #{@peopleType}", new_person_path(event_id: @event.id), role: :button, class: 'btn btn-default'
 
 - if people.count > 0
   .list-group
   - people.each do |p|
     .list-group-item 
-      %h4.list-group-item-heading #{p.company} - #{p.name}
-      %p.list-group-item-text
-        = p.skills
+      - if @event.event_type == "Hackathon"
+        %h4.list-group-item-heading #{p.company} - #{p.name}
+      - else
+        %h4.list-group-item-heading #{p.name}
+      - if @event.event_type == "Hackathon"
+        %p.list-group-item-text
+          = p.skills
       = link_to edit_person_path(p) do
         %button.btn.btn-default.edit-button{:type => "button"}
           %span.glyphicon.glyphicon-pencil
