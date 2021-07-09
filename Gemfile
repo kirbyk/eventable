@@ -10,7 +10,7 @@ gem 'jquery-ui-rails'
 gem 'pikaday-gem', '~> 1.2.0'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 1.0.0', group: :doc
 
 gem "rmagick"
 gem "carrierwave"
